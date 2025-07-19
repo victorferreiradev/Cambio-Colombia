@@ -1,6 +1,17 @@
 {
   "version": 2,
   "public": true,
+  "headers": [
+    {
+      "source": "/(.*).xlsx",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        }
+      ]
+    }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",
