@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <!-- Define o conjunto de caracteres como UTF-8 para suportar acentuação -->
+    <meta charset="UTF-8">
+
+    <!-- Define o título que será exibido na aba do navegador -->
+    <title>Câmbio COP - USD/EUR</title>
+
+    <!-- Torna a página responsiva em diferentes dispositivos -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Linka o arquivo externo de estilos CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Título principal da página -->
+    <h1>Câmbio - Peso Colombiano (USD/EUR)</h1>
+
+    <!-- Formulário com campos para seleção de moeda e datas -->
+    <section class="formulario">
+        <!-- Rótulo e seletor de moeda -->
+        <label for="moeda">Moneda:</label>
+        <select id="moeda">
+            <!-- Opção para dólar americano -->
+            <option value="usd">USD</option>
+            <!-- Opção para euro -->
+            <option value="eur">EUR</option>
+        </select>
+
+        <!-- Rótulo e campo para selecionar a data inicial -->
+        <label for="data-inicio">De:</label>
+        <input type="date" id="data-inicio">
+
+        <!-- Rótulo e campo para selecionar a data final -->
+        <label for="data-fim">Hasta:</label>
+        <input type="date" id="data-fim">
+
+        <!-- Botão que dispara a busca pelos dados -->
+        <button class="botao" id="consultar">Consultar</button>
+    </section>
+
+    <section class="resultado-wrapper">
+        <div class="resultado-header">
+            <span>Resultado</span>
+            <button id="copiar" class="botao copiar-botao" title="Copiar texto">
+                <!-- Ícone copiar -->
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M13 7H7V5H13V7Z" fill="currentColor" />
+                    <path d="M13 11H7V9H13V11Z" fill="currentColor" />
+                    <path d="M7 15H13V13H7V15Z" fill="currentColor" />
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M3 19V1H17V5H21V23H7V19H3ZM15 17V3H5V17H15ZM17 7V19H9V21H19V7H17Z" fill="currentColor" />
+                </svg>
+            </button>
+        </div>
+
+        <pre id="resultado-cambio" class="resultado"></pre>
+    </section>
+
+
+
+<footer>
+  <p>
+    Toda la información de cambio está basada en datos oficiales, extraídos directamente del <strong>Banco de la República de Colombia</strong> y presentada aquí de forma más fácil y organizada para su consulta.<br><br>
+    Última extracción: 15/07/2025<br>
+    Fuente oficial: <a href="https://www.banrep.gov.co" target="_blank">https://www.banrep.gov.co</a>
+  </p>
+</footer>
+
+
+    <!-- Biblioteca XLSX para ler arquivos Excel -->
+    <script src="libs/xlsx.full.min.js"></script>
+
+    <!-- Arquivo JavaScript principal -->
+    <script src="script.js"></script>
+</body>
+
+</html>

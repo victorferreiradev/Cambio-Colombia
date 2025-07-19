@@ -1,0 +1,146 @@
+/* ================================================
+   Estilo global da página
+================================================= */
+body {
+  font-family: Arial, sans-serif;            /* Define a fonte principal com fallback */
+  background: #dadada;                       /* Cor de fundo clara e neutra */
+  padding: 20px;                             /* Espaçamento interno geral da página */
+}
+
+/* ================================================
+   Título principal (h1)
+================================================= */
+h1 {
+  text-align: center;                        /* Centraliza horizontalmente o título */
+  color: #333;                               /* Cor escura para boa legibilidade */
+  font-size: 3vh;                            /* Tamanho proporcional à altura da viewport */
+}
+
+/* ================================================
+   Seção do formulário
+================================================= */
+.formulario {
+  display: flex;                             /* Ativa o layout flexível */
+  flex-direction: column;                    /* Organiza os elementos verticalmente */
+  gap: 12px;                                 /* Espaçamento entre os campos do formulário */
+  max-width: 400px;                          /* Largura máxima do contêiner */
+  margin: 0 auto;                            /* Centraliza o formulário na tela */
+  background: #fff;                          /* Fundo branco para destaque */
+  padding: 16px;                             /* Espaçamento interno */
+  border-radius: 8px;                        /* Cantos suavemente arredondados */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);     /* Sombra sutil para profundidade */
+}
+
+/* ================================================
+   Rótulos do formulário (label)
+================================================= */
+label {
+  font-weight: bold;                         /* Deixa os textos dos rótulos em negrito */
+  color: #333;                               /* Cor escura, coerente com o resto do layout */
+}
+
+/* ================================================
+   Campo de seleção (select)
+================================================= */
+select {
+  border-radius: 6px;                        /* Bordas arredondadas */
+  border: 1px solid #ccc;                    /* Borda cinza clara */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);     /* Sombra leve para profundidade */
+  padding: 5px;                              /* Espaço interno */
+}
+
+/* ================================================
+   Campo de entrada (input de data)
+================================================= */
+input {
+  border-radius: 6px;                        /* Bordas arredondadas */
+  border: 1px solid #ccc;                    /* Borda cinza clara */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);     /* Sombra leve para profundidade */
+  padding: 5px;                              /* Espaço interno */
+}
+
+/* ================================================
+   Botões de ação
+================================================= */
+.botao {
+  font-weight: bold;                         /* Texto em negrito para dar ênfase */
+  border-radius: 6px;                        /* Bordas arredondadas */
+  border: 1px solid #ccc;                    /* Borda cinza clara */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);     /* Sombra para leve destaque */
+  padding: 5px;                              /* Espaço interno */
+}
+
+.botao:hover {
+  background-color: #dadada;                 /* Cor de fundo ao passar o mouse */
+  transition: all 0.4s ease-in-out;          /* Transição suave de estilo */
+  cursor: pointer;                           /* Indica interatividade */
+}
+
+/* ================================================
+   Área de exibição do resultado
+================================================= */
+.resultado-wrapper {
+  max-width: 600px;                          /* Largura máxima para limitar a linha */
+  margin: 20px auto;                         /* Centralizado com margem vertical */
+}
+
+.resultado-header {
+  display: flex;                             /* Layout flexível horizontal */
+  justify-content: space-between;           /* Espaço entre título e botão */
+  align-items: center;                      /* Alinha verticalmente os itens */
+  background: #f2f2f2;                       /* Fundo claro para destaque */
+  padding: 8px 12px;                         /* Espaçamento interno */
+  border: 1px solid #ccc;                    /* Borda cinza clara */
+  border-top-left-radius: 6px;               /* Arredonda canto superior esquerdo */
+  border-top-right-radius: 6px;              /* Arredonda canto superior direito */
+  font-weight: bold;                         /* Texto em negrito */
+  color: #333;                               /* Cor escura */
+}
+
+.resultado {
+  margin-top: 20px;                          /* Espaçamento superior */
+  white-space: pre-wrap;                     /* Mantém quebras de linha e espaços */
+  background: #fff;                          /* Fundo branco */
+  padding: 12px;                             /* Espaço interno */
+  border: 1px solid #ccc;                    /* Borda cinza clara */
+  font-family: monospace;                    /* Fonte monoespaçada para alinhamento */
+  max-width: 600px;                          /* Largura máxima */
+  margin: 20px auto;                         /* Centralizado com margem vertical */
+  border-radius: 6px;                        /* Bordas arredondadas */
+  border-top: none;                          /* Remove a borda superior (já existe no header) */
+  border-bottom-left-radius: 6px;            /* Arredonda canto inferior esquerdo */
+  border-bottom-right-radius: 6px;           /* Arredonda canto inferior direito */
+}
+
+/* ================================================
+   Botão de copiar (ícone)
+================================================= */
+.copiar-botao {
+  background: transparent;                   /* Remove fundo */
+  border: none;                              /* Remove borda */
+  cursor: pointer;                           /* Cursor de ponteiro */
+  color: #333;                               /* Cor padrão do ícone */
+  display: flex;                             /* Flexbox para alinhar ícone/texto */
+  align-items: center;                       /* Alinha verticalmente */
+  transition: color 0.3s ease;               /* Transição suave ao mudar a cor */
+}
+
+.copiar-botao:hover {
+  color: #007bff;                            /* Azul ao passar o mouse */
+}
+
+/* ================================================
+   Parágrafo de referência oficial (footer/informativo)
+================================================= */
+p {
+  max-width: 800px;                          /* Limita largura para boa leitura */
+  margin: 40px auto 0 auto;                  /* Centraliza e espaça do conteúdo anterior */
+  font-size: 14px;                           /* Tamanho de texto reduzido */
+  line-height: 1.6;                          /* Aumenta o espaçamento entre linhas */
+  color: #444;                               /* Cor levemente mais clara que o título */
+  background: #ffffff;                       /* Fundo branco */
+  padding: 16px;                             /* Espaçamento interno */
+  border-radius: 6px;                        /* Bordas arredondadas */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);  /* Sombra leve */
+  border: 1px solid #ccc;                    /* Borda cinza clara */
+}
