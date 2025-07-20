@@ -32,16 +32,17 @@
 
         <!-- Rótulo e campo para selecionar a data inicial -->
         <label for="data-inicio">De:</label>
-        <input type="date" id="data-inicio">
+        <input type="date" id="data-inicio" required>
 
         <!-- Rótulo e campo para selecionar a data final -->
         <label for="data-fim">Hasta:</label>
-        <input type="date" id="data-fim">
+        <input type="date" id="data-fim" required>
 
         <!-- Botão que dispara a busca pelos dados -->
         <button class="botao" id="consultar">Consultar</button>
     </section>
 
+    <!-- Resultado da consulta e botão de copia -->
     <section class="resultado-wrapper">
         <div class="resultado-header">
             <span>Resultado</span>
@@ -58,14 +59,15 @@
         </div>
 
         <pre id="resultado-cambio" class="resultado"></pre>
+        <div id="aviso" class="aviso oculto"></div>
     </section>
 
 
-
+    <!-- Rodapé da página -->
 <footer>
   <p>
     Toda la información de cambio está basada en datos oficiales, extraídos directamente del <strong>Banco de la República de Colombia</strong> y presentada aquí de forma más fácil y organizada para su consulta.<br><br>
-    Última extracción: 15/07/2025<br>
+    <strong>Última extracción: 15/07/2025</strong><br>
     Fuente oficial: <a href="https://www.banrep.gov.co" target="_blank">https://www.banrep.gov.co</a>
   </p>
 </footer>
