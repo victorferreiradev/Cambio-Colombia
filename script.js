@@ -101,7 +101,7 @@ document.getElementById("consultar").addEventListener("click", async () => {
     
     // Adiciona aviso para USD com data atual
     if (moeda === 'USD' || moeda === 'usd' && periodoIncluiHoje) {
-      avisoElement.innerText = "⚠️ Atenção: A cotação do dólar de hoje ainda está em aberto e pode sofrer alterações.";
+      avisoElement.innerText = "⚠️ Atención: La cotización del dólar de hoy aún está abierta y puede estar sujeta a cambios.";
       avisoElement.classList.remove("oculto");
     }
 
