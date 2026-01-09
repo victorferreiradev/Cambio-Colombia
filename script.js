@@ -6,6 +6,19 @@
 // IMPORTANTE: deve representar a ÚLTIMA DATA COMPLETA disponível
 const DATA_ULTIMA_ATUALIZACAO = "2025-07-23";
 
+// Exibe dinamicamente a última data de extração no HTML
+document.addEventListener("DOMContentLoaded", () => {
+  const elementoData = document.getElementById("ultima-data");
+
+  if (elementoData) {
+    const dataFormatada = new Date(DATA_ULTIMA_ATUALIZACAO)
+      .toLocaleDateString("es-CO");
+
+    elementoData.innerText = dataFormatada;
+  }
+});
+
+
 document.getElementById("consultar").addEventListener("click", async () => {
   try {
     // Obtém os valores selecionados nos campos de moeda e datas
@@ -16,8 +29,7 @@ document.getElementById("consultar").addEventListener("click", async () => {
 
     // Verifica se as datas foram preenchidas
     if (!dataInicio || !dataFim) {
-      alert("Por favor, selecione o intervalo de datas completo!");
-      return;
+      alert("Por favor, seleccione el intervalo completo de fechas."); return;
     }
 
     // ================================================
@@ -29,13 +41,16 @@ document.getElementById("consultar").addEventListener("click", async () => {
 
     // Verifica se o arquivo foi encontrado
     if (!resposta.ok) {
-      throw new Error(`Arquivo de taxa de câmbio não encontrado: ${resposta.status} ${resposta.statusText}`);
-    }
-
+      throw new Error(
+        `Archivo de tipo de cambio no encontrado: ${resposta.status} ${resposta.statusText}`
+      );
+    };
     // Verifica se o conteúdo retornado é um arquivo Excel
     const contentType = resposta.headers.get("content-type");
     if (!contentType.includes("spreadsheet")) {
-      throw new Error(`Tipo de arquivo inválido. Esperado Excel, recebido: ${contentType}`);
+      throw new Error(
+        `Tipo de archivo inválido. Se esperaba Excel, se recibió: ${contentType}`
+      );
     }
 
     console.log("Arquivo Excel válido! Processando...");
@@ -101,8 +116,7 @@ document.getElementById("consultar").addEventListener("click", async () => {
     if ((moeda === "USD" || moeda === "usd") && periodoIncluiUltimaData) {
       avisoElement.innerText +=
         (avisoElement.innerText ? "\n\n" : "") +
-        "⚠️ Observação: a cotação do dólar da última data disponível ainda pode estar sujeita a ajustes.";
-
+        "⚠️ Observación: la cotización del dólar correspondiente a la última fecha disponible aún puede estar sujeta a ajustes.";
       avisoElement.classList.remove("oculto");
     }
 
@@ -113,16 +127,17 @@ document.getElementById("consultar").addEventListener("click", async () => {
     document.getElementById("resultado-cambio").textContent =
       resultado.length > 0
         ? resultado.join("\n")
-        : "Nenhum dado encontrado para o período selecionado.";
-
+        : "No se encontraron datos para el período seleccionado.";
   } catch (error) {
     console.error("Erro durante a consulta:", error);
 
     document.getElementById("resultado-cambio").textContent =
-      `Erro: ${error.message}\n\nPor favor, verifique:\n1. Se os arquivos de dados estão no servidor\n2. O intervalo de datas selecionado\n3. Sua conexão com a internet`;
-
+      `Error: ${error.message}\n\nPor favor, verifique:\n` +
+      `1. Si los archivos de datos están disponibles en el servidor\n` +
+      `2. El intervalo de fechas seleccionado\n` +
+      `3. Su conexión a internet`;
     if (!error.message.includes("datas")) {
-      alert(`Ops! Algo deu errado: ${error.message}`);
+      alert(`¡Ups! Algo salió mal: ${error.message}`);
     }
   }
 });
@@ -139,8 +154,8 @@ function verificarDesatualizacao(dataInicio, dataFim) {
     return {
       desatualizado: true,
       mensagem:
-        `⚠️ Atenção: os dados estão consolidados somente até ${ultimaAtualizacao.toLocaleDateString("pt-BR")}.\n\n` +
-        `Datas posteriores ainda não possuem valores definitivos e podem sofrer alterações futuras.`
+        `⚠️ Atención: los datos están consolidados únicamente hasta ${ultimaAtualizacao.toLocaleDateString("pt-BR")}.\n\n` +
+        `Las fechas posteriores aún no cuentan con valores definitivos y pueden sufrir ajustes futuros.`
     };
   }
 
@@ -154,10 +169,11 @@ document.getElementById("copiar").addEventListener("click", async () => {
   try {
     const texto = document.getElementById("resultado-cambio").textContent.trim();
 
-    if (!texto || texto.includes("Erro:") || texto.includes("Nenhum dado")) {
-      alert("Nenhum resultado válido para copiar. Realize uma consulta primeiro.");
+    if (!texto || texto.includes("Error:") || texto.includes("No se encontraron")) {
+      alert("No hay resultados válidos para copiar. Realice una consulta primero.");
       return;
     }
+
 
     await navigator.clipboard.writeText(texto);
 
@@ -167,7 +183,8 @@ document.getElementById("copiar").addEventListener("click", async () => {
     botao.innerHTML =
       '<svg width="20" height="20" viewBox="0 0 24 24" fill="none">' +
       '<path fill="green" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>' +
-      "</svg> Copiado!";
+      "</svg> ¡Copiado!";
+
 
     setTimeout(() => {
       botao.innerHTML = originalHTML;
@@ -175,7 +192,9 @@ document.getElementById("copiar").addEventListener("click", async () => {
 
   } catch (err) {
     console.error("Falha ao copiar:", err);
-    alert("Não foi possível copiar. Você pode selecionar e copiar manualmente (Ctrl+C).");
+    alert(
+      "No fue posible copiar el contenido. Puede seleccionar y copiar manualmente (Ctrl+C)."
+    );
   }
 });
 
