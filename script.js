@@ -4,7 +4,7 @@
 
 // Data limite em que os dados estão consolidados
 // IMPORTANTE: deve representar a ÚLTIMA DATA COMPLETA disponível
-const DATA_ULTIMA_ATUALIZACAO = "2026-04-17";
+const DATA_ULTIMA_ATUALIZACAO = "2026-04-22";
 
 // Exibe dinamicamente a última data de extração no HTML
 document.addEventListener("DOMContentLoaded", () => {
